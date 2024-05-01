@@ -18,8 +18,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kimdowoo.datepicker.model.Date
 import com.kimdowoo.datepicker.theme.PickerTheme
 import com.kimdowoo.datepicker.theme.colorLightPrimary
@@ -38,7 +41,7 @@ fun SpinnerDatePicker(
     offset: Int = 3,
     yearsRange: IntRange = IntRange(1923, 2121),
     startDate: Date = Date(DateUtils.getCurrentTime()),
-    textSize: Int = 16,
+    textStyle: TextStyle = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.Bold),
     isTransformationEnabled : Boolean = true,
     selectorEffectEnabled: Boolean = false,
     selectViewEnable: Boolean = false,
@@ -56,7 +59,8 @@ fun SpinnerDatePicker(
         onDateChanged(selectedDate.year, selectedDate.month + 1, selectedDate.day)
     }
 
-    val fontSize = maxOf(13, minOf(19, textSize))
+    val fontSize = textStyle.fontSize.value.coerceIn(13f, 18f).toInt()
+    val applyTextStyle = textStyle.copy(fontSize = fontSize.sp, color = getTextColor(darkModeEnabled = darkModeEnabled))
 
     Box(
         modifier = modifier
@@ -75,57 +79,55 @@ fun SpinnerDatePicker(
             Spacer(modifier = Modifier.weight(1f))
 
             WheelView(
-                modifier = Modifier.weight(1f).padding(horizontal = 8.dp),
-                years,
-                selectedDate.year,
-                height,
-                fontSize,
-                darkModeEnabled,
-                offset,
-                selectorEffectEnabled,
-                isTransformationEnabled,
-                YearMonthDay.YEAR,
-                Alignment.End,
-                TextAlign.Start,
+                modifier = Modifier
+                    .weight(1f),
+                items = years,
+                selectedItem = selectedDate.year,
+                height = height,
+                darkModeEnabled = darkModeEnabled,
+                offset = offset,
+                selectorEffectEnabled = selectorEffectEnabled,
+                isTransformationEnabled = isTransformationEnabled,
+                yearMonthDay = YearMonthDay.YEAR,
+                horizontalAlignment = Alignment.Start,
+                textAlign = TextAlign.Start,
+                textStyle = applyTextStyle
             ) {
                 selectedDate = selectedDate.withYear(years[it])
             }
 
             WheelView(
                 modifier = Modifier
-                    .weight(1f)
-                    .padding(horizontal = 8.dp),
-                months,
-                selectedDate.month,
-                height,
-                fontSize,
-                darkModeEnabled,
-                offset,
-                selectorEffectEnabled,
-                isTransformationEnabled,
-                YearMonthDay.MONTH,
-                Alignment.CenterHorizontally,
-                TextAlign.Center,
+                    .weight(1f).padding(horizontal = 8.dp),
+                items =  months,
+                selectedItem = selectedDate.month,
+                height = height,
+                darkModeEnabled = darkModeEnabled,
+                offset = offset,
+                selectorEffectEnabled = selectorEffectEnabled,
+                isTransformationEnabled = isTransformationEnabled,
+                yearMonthDay = YearMonthDay.MONTH,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                textAlign = TextAlign.Center,
+                textStyle = applyTextStyle
             ) {
                 selectedDate = selectedDate.withMonth(months[it])
             }
 
             key(days.size) {
                 WheelView(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(horizontal = 8.dp),
-                    days,
-                    selectedDate.day,
-                    height,
-                    fontSize,
-                    darkModeEnabled,
-                    offset,
-                    selectorEffectEnabled,
-                    isTransformationEnabled,
-                    YearMonthDay.DAY,
-                    Alignment.Start,
-                    TextAlign.End,
+                    modifier = Modifier.weight(1f),
+                    items = days,
+                    selectedItem = selectedDate.day,
+                    height = height,
+                    darkModeEnabled = darkModeEnabled,
+                    offset = offset,
+                    selectorEffectEnabled = selectorEffectEnabled,
+                    isTransformationEnabled = isTransformationEnabled,
+                    yearMonthDay = YearMonthDay.DAY,
+                    horizontalAlignment = Alignment.End,
+                    textAlign = TextAlign.End,
+                    textStyle = applyTextStyle
                 ) {
                     selectedDate = selectedDate.withDay(days[it])
                 }

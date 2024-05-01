@@ -29,31 +29,6 @@ class PickerColors(
     var isLight by mutableStateOf(isLight)
         internal set
 
-    fun copy(
-        primary: Color = this.primary,
-        textPrimary: Color = this.textPrimary,
-        textSecondary: Color = this.textSecondary,
-        error: Color = this.error,
-        background: Color = this.background,
-        onBackground: Color = this.onbackground,
-        isLight: Boolean = this.isLight
-    ): PickerColors = PickerColors(
-        primary,
-        textPrimary,
-        textSecondary,
-        error,
-        background,
-        onBackground,
-        isLight
-    )
-
-    fun updateColorsFrom(other: PickerColors) {
-        primary = other.primary
-        textPrimary = other.textPrimary
-        textSecondary = other.textSecondary
-        background = other.background
-        error = other.error
-    }
 }
 
 val colorLightPrimary = Color(0xFFFFFFFF)

@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -22,14 +23,14 @@ fun WheelView(
     items: List<Int>,
     selectedItem: Int,
     height: Dp,
-    fontSize: Int,
     darkModeEnabled: Boolean,
     offset: Int,
     selectorEffectEnabled: Boolean,
     isTransformationEnabled: Boolean,
     yearMonthDay: YearMonthDay,
-    horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
-    textAlign: TextAlign = TextAlign.Center,
+    horizontalAlignment: Alignment.Horizontal,
+    textAlign: TextAlign,
+    textStyle: TextStyle,
     onFocusItem: (Int) -> Unit,
 ) {
     WheelView(
@@ -47,9 +48,7 @@ fun WheelView(
                 text = items[it].toString() + yearMonthDay.label,
                 textAlign = textAlign,
                 modifier = Modifier.width(80.dp),
-                fontSize = fontSize.sp,
-                fontWeight = FontWeight.Bold,
-                color = getTextColor(darkModeEnabled)
+                style = textStyle,
             )
         }
     )
