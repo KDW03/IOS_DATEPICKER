@@ -1,6 +1,7 @@
 package com.kimdowoo.ios_datepicker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -23,8 +24,13 @@ class MainActivity : ComponentActivity() {
 
 
                 Text(text = "DarkMode")
-                SpinnerDatePicker(darkModeEnabled = true, textStyle = MaterialTheme.typography.titleSmall)
-                SpinnerDatePicker(darkModeEnabled = false)
+                SpinnerDatePicker(
+                    darkModeEnabled = true,
+                    textStyle = MaterialTheme.typography.titleSmall
+                )
+                SpinnerDatePicker(darkModeEnabled = false) { y, m, d ->
+                    Log.d("testDateChanged", "$y, $m, $d")
+                }
 //                Text(text = "isTransformationEnabled")
 //                SpinnerDatePicker(isTransformationEnabled = true)
 //                SpinnerDatePicker(isTransformationEnabled = false)

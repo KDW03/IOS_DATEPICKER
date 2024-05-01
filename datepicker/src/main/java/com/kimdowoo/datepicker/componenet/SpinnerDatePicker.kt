@@ -45,8 +45,8 @@ fun SpinnerDatePicker(
     isTransformationEnabled : Boolean = true,
     selectorEffectEnabled: Boolean = false,
     selectViewEnable: Boolean = false,
-    onDateChanged: (Int, Int, Int) -> Unit = { _, _, _ -> },
     darkModeEnabled: Boolean = false,
+    onDateChanged: (Int, Int, Int) -> Unit = { _, _, _ -> },
 ) {
 
     var selectedDate by remember { mutableStateOf(startDate) }
