@@ -2,6 +2,61 @@
 [IOS_DatePicker](https://github.com/KDW03/IOS_DATEPICKER)는 Jetpack Compose UI를 사용하여 개발된 iOS 스타일의 한국식 DatePicker 라이브러리입니다. 
 IOS_DatePicker는 여러 커스터마이징 옵션을 제공합니다.
 
+
+#### darkModeEnabled
+
+<p align="start">
+  
+![Screen_Recording_20240501_234226_IOS_DatePicker_1-ezgif com-resize](https://github.com/KDW03/IOS_DATEPICKER/assets/109224863/23dcbd88-f80b-49b0-aa27-3ee7cfa7a949)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Screen_Recording_20240501_232842_IOS_DatePicker-ezgif com-resize](https://github.com/KDW03/IOS_DATEPICKER/assets/109224863/41965f8d-0386-4b48-ae2a-dadd1d22af0a)
+
+</p>
+
+
+#### selectViewEnable
+
+<p align="start">
+  
+![Screen_Recording_20240501_233541_IOS_DatePicker_1-ezgif com-crop](https://github.com/KDW03/IOS_DATEPICKER/assets/109224863/9657f81b-09a4-421f-9142-973d13365ff8)
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Screen_Recording_20240501_233541_IOS_DatePicker-ezgif com-crop](https://github.com/KDW03/IOS_DATEPICKER/assets/109224863/5e51e8f2-9d69-4bd3-b629-3c4e17b297b5)
+  
+</p>
+
+#### isTransformationEnabled
+
+<p align="start">
+
+![Screen_Recording_20240501_234226_IOS_DatePicker_2-ezgif com-crop](https://github.com/KDW03/IOS_DATEPICKER/assets/109224863/3c60105e-ac8e-4c90-afe1-28407b1012fc)
+  
+</p>
+
+<br>
+
+
+# Usage
+
+<br>
+
+```kotlin
+SpinnerDatePicker(
+  modifier = Modifier,
+	offset =/*offset*/,
+	yearsRange = IntRange(/*minYear*/,/*maxYear*/),
+	startDate =/*startDate*/,
+	textStyle =/*textStyle*/,
+  isTransformationEnabled = /*isTransformationEnabled*/,
+	selectorEffectEnabled =/*selectorEffectEnabled*/,
+  selectViewEnable =/*selectViewEnable*/,
+	darkModeEnabled =/*darkModeEnabled*/,
+	onDateChanged = { year, month, day ->
+	  /*Handle date changes*/
+	}
+)
+```
+
+
 #### Parameters
 
 | Parameter                | Type      | Description                                                     |
@@ -18,3 +73,29 @@ IOS_DatePicker는 여러 커스터마이징 옵션을 제공합니다.
 
 <br>
 <br>
+
+## Implementation Gradle
+
+###### Add it in your root build.gradle at the end of repositories:
+
+```groovy
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+###### Add the dependency
+
+```groovy
+	dependencies {
+	        implementation 'com.github.KDW03:IOS_DATEPICKER:1.0.3'
+	}
+```
+
+
+
+
