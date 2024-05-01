@@ -46,9 +46,9 @@ SpinnerDatePicker(
 	yearsRange = IntRange(/*minYear*/,/*maxYear*/),
 	startDate =/*startDate*/,
 	textStyle =/*textStyle*/,
-  isTransformationEnabled = /*isTransformationEnabled*/,
+        isTransformationEnabled = /*isTransformationEnabled*/,
 	selectorEffectEnabled =/*selectorEffectEnabled*/,
-  selectViewEnable =/*selectViewEnable*/,
+        selectViewEnable =/*selectViewEnable*/,
 	darkModeEnabled =/*darkModeEnabled*/,
 	onDateChanged = { year, month, day ->
 	  /*Handle date changes*/
