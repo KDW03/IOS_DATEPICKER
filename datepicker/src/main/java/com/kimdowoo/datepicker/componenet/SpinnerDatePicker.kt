@@ -53,7 +53,7 @@ fun SpinnerDatePicker(
     val years = yearsRange.toList()
 
     LaunchedEffect(selectedDate) {
-        onDateChanged(selectedDate.year, selectedDate.month, selectedDate.day)
+        onDateChanged(selectedDate.year, selectedDate.month + 1, selectedDate.day)
     }
 
     val fontSize = maxOf(13, minOf(19, textSize))
