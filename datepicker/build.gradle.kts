@@ -40,7 +40,7 @@ android {
 }
 
 group = "com.github.KDW03"
-version = "1.0.0"
+version = "1.0.1"
 
 afterEvaluate {
     publishing {
@@ -48,7 +48,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.github.KDW03"
                 artifactId = "datepicker"
-                version = "1.0.0"
+                version = "1.0.1"
                 from(components["release"])
             }
         }
