@@ -64,7 +64,7 @@ SpinnerDatePicker(
 | `offset`                 | Int       | 피커에 표시할 항목 수 [**default: 3**]                            |
 | `yearsRange`             | IntRange  | 선택 가능한 최소 및 최대 연도 [**default: IntRange(1923, 2121)**]  |
 | `startDate`              | Long      | 피커에 표시될 시작 날짜, 밀리초 단위 [**default: 현재 날짜**]          |
-| `textSize`               | Int       | 피커 텍스트의 크기 [**default: 16**]               |
+| `textStyle`               | TextStyle       | 피커 텍스트 스타일 [**default: fontSize = 16 , fontWeight = Bold**]               |
 | `isTransformationEnabled`| Boolean   | 선택되지 않은 항목에 대한 변환 효과 활성화 여부 (예: 회전, 확대) [**default: true**] |
 | `selectorEffectEnabled`  | Boolean   | 선택 시 햅틱 효과 활성화 여부 [**default: false**]               |
 | `selectViewEnable`       | Boolean   | 선택된 항목을 강조하는 SelectView 활성화 여부 [**default: false**] |
